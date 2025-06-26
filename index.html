@@ -6,19 +6,28 @@
   <style>
     body {
       font-family: sans-serif;
-      background: #f4f4f4;
+      background: #f9f9f9;
       margin: 0;
       padding: 2rem;
     }
     h1, h2 {
       text-align: center;
     }
+    .filters {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .filters select {
+      padding: 8px;
+      margin: 0 5px;
+      border-radius: 5px;
+    }
     .device {
       background: white;
       border-radius: 10px;
       padding: 1rem;
       margin: 1rem auto;
-      max-width: 600px;
+      max-width: 700px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
     .device h3 {
@@ -35,39 +44,70 @@
     }
     .btn {
       display: inline-block;
-      padding: 8px 12px;
+      padding: 6px 10px;
       background: #28a745;
       color: white;
       border-radius: 5px;
       text-decoration: none;
-      margin: 0.5rem 0;
+      margin: 0.3rem;
+      font-size: 0.9em;
+    }
+    .variant-container {
+      margin-top: 0.5rem;
     }
   </style>
+  <script>
+    function filterDevices() {
+      const version = document.getElementById('filter-version').value;
+      const devices = document.querySelectorAll('.device');
+      devices.forEach(d => {
+        const hasVersion = d.dataset.android.includes(version) || version === 'all';
+        d.style.display = hasVersion ? 'block' : 'none';
+      });
+    }
+  </script>
 </head>
 <body>
-  <h1>📱 Massatrio's Unisoc Recovery</h1>
-  <p style="text-align:center">Custom Recovery with Decrypt + Touch Support</p>  <div class="device">
+  <h1>📱 Massatrio's Recovery Collection</h1>
+  <p style="text-align:center">Support: TWRP | OrangeFox | PitchBlack | Touch & Decrypt</p>  <div class="filters">
+    <label for="filter-version">Filter Android:</label>
+    <select id="filter-version" onchange="filterDevices()">
+      <option value="all">All</option>
+      <option value="13">Android 13</option>
+      <option value="14">Android 14</option>
+    </select>
+  </div>  <div class="device" data-android="13">
     <h3>Infinix Hot 40i (X6528/X6528B)</h3>
     <span class="tag">Android 13</span>
     <span class="tag">Touch</span>
     <span class="tag">Decrypt</span>
-    <p>Custom recovery build by Massatrio. Full decrypt + touch support.</p>
-    <a href="https://github.com/Massatriof16/X6528" class="btn">GitHub Source</a>
-    <a href="#" class="btn">Download IMG</a>
-  </div>  <div class="device">
+    <p>Recovery stable with full decrypt. Available in TWRP, OrangeFox, and PitchBlack.</p>
+    <div class="variant-container">
+      <a href="https://github.com/Massatriof16/X6528" class="btn">Source</a>
+      <a href="https://github.com/Massatriof16/X6528/releases/download/v1.0/twrp.img" class="btn">TWRP</a>
+      <a href="https://github.com/Massatriof16/X6528/releases/download/v1.0/orangefox.img" class="btn">OrangeFox</a>
+      <a href="https://github.com/Massatriof16/X6528/releases/download/v1.0/pb.img" class="btn">PitchBlack</a>
+    </div>
+  </div>  <div class="device" data-android="13">
     <h3>Itel S23</h3>
     <span class="tag">Android 13</span>
     <span class="tag">Touch</span>
     <span class="tag">Decrypt</span>
-    <p>Stable recovery build. Used by many Itel S23 users for root and backup.</p>
-    <a href="#" class="btn">GitHub Source</a>
-    <a href="#" class="btn">Download IMG</a>
-  </div>  <div class="device">
-    <h3>Infinix Smart 8 (Coming Soon)</h3>
+    <p>Stable recovery build. Trusted by Itel S23 users. All variants available.</p>
+    <div class="variant-container">
+      <a href="#" class="btn">Source</a>
+      <a href="#" class="btn">TWRP</a>
+      <a href="#" class="btn">OrangeFox</a>
+      <a href="#" class="btn">PitchBlack</a>
+    </div>
+  </div>  <div class="device" data-android="13">
+    <h3>Infinix Smart 8</h3>
     <span class="tag">Android 13</span>
     <span class="tag">WIP</span>
-    <p>Recovery sedang dalam proses build. Tunggu update di sini atau GitHub.</p>
-    <a href="#" class="btn" style="background: gray;">Coming Soon</a>
+    <p>Recovery sedang dalam proses build. Pantau terus di GitHub dan Telegram.</p>
+    <div class="variant-container">
+      <a href="#" class="btn" style="background: gray;">Coming Soon</a>
+    </div>
   </div>
 </body>
 </html>
