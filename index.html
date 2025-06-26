@@ -8,19 +8,53 @@
       font-family: sans-serif;
       background: #f9f9f9;
       margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #343a40;
+      padding: 1rem;
+      color: white;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      background: #212529;
+    }
+    nav .menu {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+    nav .menu > div {
+      position: relative;
+      padding: 1rem;
+      color: white;
+      cursor: pointer;
+    }
+    nav .submenu {
+      display: none;
+      position: absolute;
+      top: 3.5rem;
+      left: 0;
+      background: #343a40;
+      padding: 0.5rem 0;
+      min-width: 150px;
+      z-index: 99;
+    }
+    nav .submenu a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: white;
+      text-decoration: none;
+    }
+    nav .submenu a:hover {
+      background: #495057;
+    }
+    nav .menu > div:hover .submenu {
+      display: block;
+    }
+    .content {
       padding: 2rem;
-    }
-    h1, h2 {
-      text-align: center;
-    }
-    .filters {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    .filters select {
-      padding: 8px;
-      margin: 0 5px;
-      border-radius: 5px;
     }
     .device {
       background: white;
@@ -52,62 +86,84 @@
       margin: 0.3rem;
       font-size: 0.9em;
     }
-    .variant-container {
-      margin-top: 0.5rem;
-    }
   </style>
-  <script>
-    function filterDevices() {
-      const version = document.getElementById('filter-version').value;
-      const devices = document.querySelectorAll('.device');
-      devices.forEach(d => {
-        const hasVersion = d.dataset.android.includes(version) || version === 'all';
-        d.style.display = hasVersion ? 'block' : 'none';
-      });
-    }
-  </script>
 </head>
 <body>
-  <h1>📱 Massatrio's Recovery Collection</h1>
-  <p style="text-align:center">Support: TWRP | OrangeFox | PitchBlack | Touch & Decrypt</p>  <div class="filters">
-    <label for="filter-version">Filter Android:</label>
-    <select id="filter-version" onchange="filterDevices()">
-      <option value="all">All</option>
-      <option value="13">Android 13</option>
-      <option value="14">Android 14</option>
-    </select>
-  </div>  <div class="device" data-android="13">
-    <h3>Infinix Hot 40i (X6528/X6528B)</h3>
-    <span class="tag">Android 13</span>
-    <span class="tag">Touch</span>
-    <span class="tag">Decrypt</span>
-    <p>Recovery stable with full decrypt. Available in TWRP, OrangeFox, and PitchBlack.</p>
-    <div class="variant-container">
-      <a href="https://github.com/Massatriof16/X6528" class="btn">Source</a>
-      <a href="https://github.com/Massatriof16/X6528/releases/download/v1.0/twrp.img" class="btn">TWRP</a>
-      <a href="https://github.com/Massatriof16/X6528/releases/download/v1.0/orangefox.img" class="btn">OrangeFox</a>
-      <a href="https://github.com/Massatriof16/X6528/releases/download/v1.0/pb.img" class="btn">PitchBlack</a>
+  <header>
+    <h1>📱 Massatrio's Recovery Collection</h1>
+    <p>Support: TWRP | OrangeFox | PitchBlack | Touch & Decrypt</p>
+  </header>  <nav>
+    <div class="menu">
+      <div>
+        Itel
+        <div class="submenu">
+          <a href="#itel-s23">S23</a>
+          <a href="#itel-a70">A70</a>
+          <a href="#itel-p55">P55 NFC</a>
+        </div>
+      </div>
+      <div>
+        Infinix
+        <div class="submenu">
+          <a href="#infinix-hot30i">Hot 30i</a>
+          <a href="#infinix-hot40i">Hot 40i</a>
+          <a href="#infinix-smart8">Smart 8</a>
+        </div>
+      </div>
     </div>
-  </div>  <div class="device" data-android="13">
-    <h3>Itel S23</h3>
-    <span class="tag">Android 13</span>
-    <span class="tag">Touch</span>
-    <span class="tag">Decrypt</span>
-    <p>Stable recovery build. Trusted by Itel S23 users. All variants available.</p>
-    <div class="variant-container">
-      <a href="#" class="btn">Source</a>
+  </nav>  <div class="content">
+    <div class="device" id="itel-s23">
+      <h3>Itel S23</h3>
+      <span class="tag">Touch</span>
+      <span class="tag">Decrypt</span>
+      <p>Stable recovery build. Trusted by Itel S23 users.</p>
       <a href="#" class="btn">TWRP</a>
       <a href="#" class="btn">OrangeFox</a>
       <a href="#" class="btn">PitchBlack</a>
-    </div>
-  </div>  <div class="device" data-android="13">
-    <h3>Infinix Smart 8</h3>
-    <span class="tag">Android 13</span>
-    <span class="tag">WIP</span>
-    <p>Recovery sedang dalam proses build. Pantau terus di GitHub dan Telegram.</p>
-    <div class="variant-container">
-      <a href="#" class="btn" style="background: gray;">Coming Soon</a>
-    </div>
+    </div><div class="device" id="itel-a70">
+  <h3>Itel A70</h3>
+  <span class="tag">Touch</span>
+  <span class="tag">Decrypt</span>
+  <p>Recovery dengan dukungan penuh, tested pada Unisoc.</p>
+  <a href="#" class="btn">TWRP</a>
+  <a href="#" class="btn">OrangeFox</a>
+</div>
+
+<div class="device" id="itel-p55">
+  <h3>Itel P55 NFC</h3>
+  <span class="tag">Touch</span>
+  <span class="tag">Decrypt</span>
+  <p>Recovery varian NFC, mendukung penuh Unisoc Android 13.</p>
+  <a href="#" class="btn">TWRP</a>
+</div>
+
+<div class="device" id="infinix-hot30i">
+  <h3>Infinix Hot 30i (X669/X669D)</h3>
+  <span class="tag">Touch</span>
+  <span class="tag">Decrypt</span>
+  <p>Recovery stabil dengan dukungan multi varian X669 series.</p>
+  <a href="#" class="btn">TWRP</a>
+  <a href="#" class="btn">OrangeFox</a>
+</div>
+
+<div class="device" id="infinix-hot40i">
+  <h3>Infinix Hot 40i (X6528/X6528B)</h3>
+  <span class="tag">Touch</span>
+  <span class="tag">Decrypt</span>
+  <p>Recovery stable with full decrypt. All variant included.</p>
+  <a href="https://github.com/Massatriof16/X6528" class="btn">Source</a>
+  <a href="https://github.com/Massatriof16/X6528/releases/download/v1.0/twrp.img" class="btn">TWRP</a>
+  <a href="https://github.com/Massatriof16/X6528/releases/download/v1.0/orangefox.img" class="btn">OrangeFox</a>
+  <a href="https://github.com/Massatriof16/X6528/releases/download/v1.0/pb.img" class="btn">PitchBlack</a>
+</div>
+
+<div class="device" id="infinix-smart8">
+  <h3>Infinix Smart 8</h3>
+  <span class="tag">WIP</span>
+  <p>Recovery sedang dalam proses build. Pantau terus!</p>
+  <a href="#" class="btn" style="background: gray;">Coming Soon</a>
+</div>
+
   </div>
 </body>
 </html>
