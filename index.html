@@ -2,66 +2,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Massatrio's Unisoc Recovery</title>
+  <title>Massatrio's Recovery Collection</title>
   <style>
     body {
       font-family: sans-serif;
-      background: #f9f9f9;
       margin: 0;
       padding: 0;
+      background: #f4f4f4;
     }
     header {
-      background: #343a40;
-      padding: 1rem;
+      background: #2c3e50;
       color: white;
+      padding: 1rem;
       text-align: center;
     }
-    nav {
+    .tabs {
       display: flex;
-      background: #212529;
+      overflow-x: auto;
+      background: #1a1a1a;
     }
-    nav .menu {
+    .tabs button {
       flex: 1;
-      display: flex;
-      justify-content: center;
-    }
-    nav .menu > div {
-      position: relative;
       padding: 1rem;
+      background: #1a1a1a;
       color: white;
+      border: none;
       cursor: pointer;
+      font-size: 1rem;
     }
-    nav .submenu {
+    .tabs button.active {
+      background: #007bff;
+    }
+    .tab-content {
       display: none;
-      position: absolute;
-      top: 3.5rem;
-      left: 0;
-      background: #343a40;
-      padding: 0.5rem 0;
-      min-width: 150px;
-      z-index: 99;
+      padding: 1rem;
     }
-    nav .submenu a {
+    .tab-content.active {
       display: block;
-      padding: 0.5rem 1rem;
-      color: white;
-      text-decoration: none;
-    }
-    nav .submenu a:hover {
-      background: #495057;
-    }
-    nav .menu > div:hover .submenu {
-      display: block;
-    }
-    .content {
-      padding: 2rem;
     }
     .device {
       background: white;
-      border-radius: 10px;
       padding: 1rem;
-      margin: 1rem auto;
-      max-width: 700px;
+      margin: 1rem 0;
+      border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
     .device h3 {
@@ -90,29 +73,13 @@
 </head>
 <body>
   <header>
-    <h1>📱 Massatrio's Recovery Collection</h1>
-    <p>Support: TWRP | OrangeFox | PitchBlack | Touch & Decrypt</p>
-  </header>  <nav>
-    <div class="menu">
-      <div>
-        Itel
-        <div class="submenu">
-          <a href="#itel-s23">S23</a>
-          <a href="#itel-a70">A70</a>
-          <a href="#itel-p55">P55 NFC</a>
-        </div>
-      </div>
-      <div>
-        Infinix
-        <div class="submenu">
-          <a href="#infinix-hot30i">Hot 30i</a>
-          <a href="#infinix-hot40i">Hot 40i</a>
-          <a href="#infinix-smart8">Smart 8</a>
-        </div>
-      </div>
-    </div>
-  </nav>  <div class="content">
-    <div class="device" id="itel-s23">
+    <h1>Massatrio's Recovery Collection</h1>
+    <p>Support: TWRP, OrangeFox, PitchBlack | Touch & Decrypt</p>
+  </header>  <div class="tabs">
+    <button class="tab-link active" onclick="showTab('itel')">Itel</button>
+    <button class="tab-link" onclick="showTab('infinix')">Infinix</button>
+  </div>  <div id="itel" class="tab-content active">
+    <div class="device">
       <h3>Itel S23</h3>
       <span class="tag">Touch</span>
       <span class="tag">Decrypt</span>
@@ -120,7 +87,7 @@
       <a href="#" class="btn">TWRP</a>
       <a href="#" class="btn">OrangeFox</a>
       <a href="#" class="btn">PitchBlack</a>
-    </div><div class="device" id="itel-a70">
+    </div><div class="device">
   <h3>Itel A70</h3>
   <span class="tag">Touch</span>
   <span class="tag">Decrypt</span>
@@ -129,7 +96,7 @@
   <a href="#" class="btn">OrangeFox</a>
 </div>
 
-<div class="device" id="itel-p55">
+<div class="device">
   <h3>Itel P55 NFC</h3>
   <span class="tag">Touch</span>
   <span class="tag">Decrypt</span>
@@ -137,16 +104,15 @@
   <a href="#" class="btn">TWRP</a>
 </div>
 
-<div class="device" id="infinix-hot30i">
-  <h3>Infinix Hot 30i (X669/X669D)</h3>
-  <span class="tag">Touch</span>
-  <span class="tag">Decrypt</span>
-  <p>Recovery stabil dengan dukungan multi varian X669 series.</p>
-  <a href="#" class="btn">TWRP</a>
-  <a href="#" class="btn">OrangeFox</a>
-</div>
-
-<div class="device" id="infinix-hot40i">
+  </div>  <div id="infinix" class="tab-content">
+    <div class="device">
+      <h3>Infinix Hot 30i (X669/X669D)</h3>
+      <span class="tag">Touch</span>
+      <span class="tag">Decrypt</span>
+      <p>Recovery stabil dengan dukungan multi varian X669 series.</p>
+      <a href="#" class="btn">TWRP</a>
+      <a href="#" class="btn">OrangeFox</a>
+    </div><div class="device">
   <h3>Infinix Hot 40i (X6528/X6528B)</h3>
   <span class="tag">Touch</span>
   <span class="tag">Decrypt</span>
@@ -157,13 +123,21 @@
   <a href="https://github.com/Massatriof16/X6528/releases/download/v1.0/pb.img" class="btn">PitchBlack</a>
 </div>
 
-<div class="device" id="infinix-smart8">
+<div class="device">
   <h3>Infinix Smart 8</h3>
   <span class="tag">WIP</span>
   <p>Recovery sedang dalam proses build. Pantau terus!</p>
   <a href="#" class="btn" style="background: gray;">Coming Soon</a>
 </div>
 
-  </div>
-</body>
+  </div>  <script>
+    function showTab(tabId) {
+      const tabs = document.querySelectorAll('.tab-content');
+      const buttons = document.querySelectorAll('.tab-link');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      buttons.forEach(btn => btn.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script></body>
 </html>
