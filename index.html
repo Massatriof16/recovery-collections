@@ -76,9 +76,23 @@
     <h2>📱CUSTOM RECOVERY UNISOC BY MASSATRIOF📱</h2>
     <p>Support: TWRP, OrangeFox <br> Telegram User : @Massatriof16 </p>
   </header>  <div class="tabs">
-    <button class="tab-link active" onclick="showTab('itel')">Itel</button>
-    <button class="tab-link" onclick="showTab('infinix')">Infinix</button>
-  </div>  <div id="itel" class="tab-content active">
+  <button class="tab-link active" onclick="showTab('intro')">📖 Pendahuluan</button>
+  <button class="tab-link" onclick="showTab('itel')">📱 Itel</button>
+  <button class="tab-link" onclick="showTab('infinix')">🔥 Infinix</button>
+</div> <div id="intro" class="tab-content active">
+  <div style="background:#fff3cd; border:1px solid #ffeeba; margin:1rem; padding:1rem; border-radius:8px; color:#856404;">
+    <h3>📌 PENTING SEBELUM MENGGUNAKAN CUSTOM RECOVERY</h3>
+    <p><strong>⚠️ Peringatan:</strong> Flashing recovery dapat menyebabkan bootloop jika dilakukan dengan salah. Pastikan kamu memahami langkah-langkah berikut:</p>
+    <ul>
+      <li>Backup data penting sebelum memulai</li>
+      <li>Gunakan perintah <code>fastboot flash recovery recovery.img</code> untuk format lama</li>
+      <li>Gunakan <code>fastboot flash vendor_boot your_file.img</code> untuk format baru</li>
+      <li>Pastikan file sesuai dengan device kamu</li>
+      <li>Jika menggunakan recovery berbasis <strong>vendor_boot</strong>, flash ke partisi <code>vendor_boot</code></li>
+    </ul>
+    <p><strong>📎 Catatan:</strong> Recovery ini hanya diuji pada perangkat Unisoc, dan sebagian besar memiliki bug pada <code>Decrypt Lockscreen</code>.</p>
+  </div>
+</div> <div id="itel" class="tab-content active">
     <div class="device">
       <h3>Itel S23</h3>
       <span class="tag">Touch</span>
@@ -139,13 +153,13 @@
 </div>
 
   </div>  <script>
-    function showTab(tabId) {
-      const tabs = document.querySelectorAll('.tab-content');
-      const buttons = document.querySelectorAll('.tab-link');
-      tabs.forEach(tab => tab.classList.remove('active'));
-      buttons.forEach(btn => btn.classList.remove('active'));
-      document.getElementById(tabId).classList.add('active');
-      event.target.classList.add('active');
-    }
-  </script></body>
+  function showTab(tabId) {
+    const tabs = document.querySelectorAll('.tab-content');
+    const buttons = document.querySelectorAll('.tab-link');
+    tabs.forEach(tab => tab.classList.remove('active'));
+    buttons.forEach(btn => btn.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script></body>
 </html>
