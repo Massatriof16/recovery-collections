@@ -100,9 +100,10 @@
     <p><strong>⚠️ Peringatan:</strong> Flashing recovery dapat menyebabkan bootloop jika dilakukan dengan salah. Pastikan kamu memahami langkah-langkah berikut:</p>
     <ul>
       <li>Backup Vendor_Boot bila perlu</li>
-      <li>Gunakan perintah <code>fastboot getvar current-slot</code> untuk Cek Slot aktif</li>
-      <li>Gunakan <code>fastboot flash vendor_boot_(slot_aktif) your_file.img</code> jangan lupa ganti (slot_aktif) sesuai huruf yang keluar saat di cek perintah diatas a/b</li>
-      <li>Pastikan file sesuai dengan Code Name Device kamu</li>
+      <li>adb reboot bootloader</li>
+      <li><code>fastboot getvar current-slot</code> lihat output slot saat ini A/B</li>
+      <li><code>fastboot flash vendor_boot_(aktif_slot) your_file.img</code> Ganti (aktif_slot) menjadi huruf a/b sesuai slot aktif saat ini</li>
+      <li>fastboot reboot</li>
     </ul>
     <p><strong>📎 Catatan:</strong>semuanya memiliki bug pada <code>Decrypt Lockscreen</code>.</p>
   </div> 
