@@ -85,15 +85,16 @@
   
   <div class="tabs">
   <button class="tab-link active" onclick="showTab('intro')">Tutorial</button>
-  <button class="tab-link" onclick="showTab('itel')">📱Custom Recovery</button>
+  <button class="tab-link" onclick="showTab('itel')"> 🔥Custom Recovery</button>
   <button class="tab-link" onclick="showTab('alat')">🛠️spreadtrum_flash</button>
 </div> 
 <div id="intro" class="tab-content active">
   <div style="background:#fff3cd; border:1px solid #ffeeba; margin:1rem; padding:1rem; border-radius:8px; color:#856404;">
     <h3>📌 PENTING SEBELUM MENGGUNAKAN CUSTOM RECOVERY</h3>
-    <p><strong>⚠️ Peringatan:</strong> Flashing recovery dapat menyebabkan bootloop jika dilakukan dengan salah. Pastikan kamu memahami langkah-langkah berikut:</p>
+    <p><strong>⚠️ Peringatan:</strong> Semua file di Web ini dikompres menggunakan xz dan zip. Pastikan kamu memahami langkah-langkah berikut:</p>
     <ul>
       <li>Backup Vendor_Boot bila perlu</li>
+      <li>Extract file tetlebih dahulu melalui format xz </li>
       <li>adb reboot bootloader</li>
       <li><code>fastboot getvar current-slot</code> lihat output slot saat ini A/B</li>
       <li><code>fastboot flash vendor_boot_(aktif_slot) your_file.img</code> Ganti (aktif_slot) menjadi huruf a/b sesuai slot aktif saat ini</li>
