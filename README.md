@@ -33,7 +33,7 @@ Supported for Linux & Windows
 |  SPD_Driver_R4.20.4201         |  [Download](https://github.com/Massatriof16/recovery-collections/releases/download/Spd_flash/SPD_Driver_R4.20.4201.zip)         |
 
 
-> 📥 Bagi Yang Mau Join Grup Telegram Forum Transsion Unisoc Series Bisa Klik Link Berikut Ini > [Telegram](t.me/forumitelindonesia).
+> 📥 Bagi Yang Mau Join Grup Telegram Forum Transsion Unisoc Series Bisa Klik Link Berikut Ini > [Telegram](https://t.me/forumitelindonesia).
 
 ---
 
