@@ -28,10 +28,11 @@ Supported for Linux & Windows
 |  V17.7 Windows                 |  [Download](https://github.com/Massatriof16/recovery-collections/releases/download/Spd_flash/spreadtrum_flash_V17.7.zip)        |
 |  V17.7 Linux                   |  [Download](https://github.com/Massatriof16/recovery-collections/releases/download/Spd_flash/spreadtrum_flash_linux_V17.7.zip)  |
 
-|        SPD Driver              |                                                     Download Link                                                               |
-|--------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-|  SPD_Driver_R4.20.4201         |  [Download](https://github.com/Massatriof16/recovery-collections/releases/download/Spd_flash/SPD_Driver_R4.20.4201.zip)         |
-
+|        SPD Driver & VC_Redist_X86             |                                                        Download Link                                                    |
+|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+|  SPD_Driver_R4.20.4201                        |  [Download](https://github.com/Massatriof16/recovery-collections/releases/download/Spd_flash/SPD_Driver_R4.20.4201.zip) |
+|  SPD_Driver_R4.20.4201                        |  [Download](https://github.com/Massatriof16/recovery-collections/releases/download/Spd_flash/VC_redist.x86.exe)         |
+|  sudo apt install libusb-1.0-0-dev            |  ketik diterminal untuk driver linux                                                                                    |
 
 > 📥 Bagi Yang Mau Join Grup Telegram Forum Transsion Unisoc Series Bisa Klik Link Berikut Ini > [Telegram](https://t.me/forumitelindonesia).
 
