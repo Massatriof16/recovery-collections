@@ -31,7 +31,7 @@ Supported for Linux & Windows
 |        SPD Driver & VC_Redist_X86             |                                                        Download Link                                                    |
 |-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
 |  SPD_Driver_R4.20.4201                        |  [Download](https://github.com/Massatriof16/recovery-collections/releases/download/Spd_flash/SPD_Driver_R4.20.4201.zip) |
-|  SPD_Driver_R4.20.4201                        |  [Download](https://github.com/Massatriof16/recovery-collections/releases/download/Spd_flash/VC_redist.x86.exe)         |
+|  VC_redist.x86.exe (for fix error under win10)            |  [Download](https://github.com/Massatriof16/recovery-collections/releases/download/Spd_flash/VC_redist.x86.exe)         |
 |  sudo apt install libusb-1.0-0-dev            |  ketik diterminal untuk driver linux                                                                                    |
 
 > 📥 Bagi Yang Mau Join Grup Telegram Forum Transsion Unisoc Series Bisa Klik Link Berikut Ini > [Telegram](https://t.me/forumitelindonesia).
