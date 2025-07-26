@@ -74,6 +74,25 @@
     color: red; /* Ganti ke warna yang kamu mau */
     font-weight: bold; /* Opsional: biar lebih mencolok */
   }
+  .copy-box {
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  padding: 1em;
+  position: relative;
+  border-radius: 8px;
+  font-family: monospace;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+  .copy-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
   </style>
 </head>
 <body>
@@ -112,8 +131,8 @@
       <p>Custom Recovery untuk device Itel S23 S665L<br>Build Date: 6 May 2024<br> Tester : @farispm & @Sprtcrnbry</p>
   <p id="bug"> BUG: <br>- Decrypt Lockscreen </p>
       <a href="https://github.com/Massatriof16/recovery-collections/releases/download/For_s23/TWRP_S665L.img" class="btn" >TWRP</a>
-      <a href="https://github.com/Massatriof16/recovery-collections/releases/download/For_s23/OrangeFox_S665L.img" class="btn">OrangeFox</a>
-      <a href="https://github.com/Massatriof16/recovery-collections/releases/download/For_s23/SHRP_S665L.img" class="btn">SHRP</a>
+      <a href="#" class="btn">OrangeFox</a>
+      <a href="#" class="btn">SHRP</a>
     </div>
     
     <div class="device">
@@ -245,7 +264,10 @@
     <li>Masukkan perintah berikut : <code>Get-ExecutionPolicy</code> </li>
     <li> jika output muncul "Restricted" Masukkan Perintah berikut</li>
     <li><code>Set-ExecutionPolicy AllSigned</code> atau<br><code>Set-ExecutionPolicy Bypass -Scope Process</code></li>
-    <li> Masukkan perintah berikut selanjutnya: <code>Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))</code></li>
+     <li> masukkan perintah berikut ini <br> <div class="copy-box" id="powershell-code">
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+  <button class="copy-button" onclick="copyText('powershell-code')">Salin</button> </li>
+</div>
     <li> Jika berhasil Maka lakukan : <code>choco install python</code></li>
     </div>
     
@@ -258,5 +280,16 @@
     document.getElementById(tabId).classList.add('active');
     event.target.classList.add('active');
   }
+  function copyText(id) {
+  const el = document.getElementById(id);
+  const range = document.createRange();
+  range.selectNodeContents(el);
+  const sel = window.getSelection();
+  sel.removeAllRanges();
+  sel.addRange(range);
+  document.execCommand("copy");
+  sel.removeAllRanges();
+  alert("Teks disalin!");
+}
 </script></body>
 </html>
