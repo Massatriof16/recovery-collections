@@ -185,7 +185,7 @@
   <div style="background:#fff3cd; border:1px solid #ffeeba; margin:1rem; padding:1rem; border-radius:4px; color:#856404;">
     <h3>Spreadtrum_Flash</h3>
     <p> Big Update 18 <br>
-    - Perpindahan Menu Bat ke Python pada Windows ( Harap Install Python di Microsoft store atau install Melalui Chocolatey!)
+    - Perpindahan Menu Bat ke Python pada Windows ( Harap Install Python di Microsoft store, melaluu chrome atau install Melalui Chocolatey!)
     <p> Update 17.7 <br>
     - GOODBYE UMS312<br>
     - add English language menu
@@ -241,11 +241,12 @@
     <div style="background:#fff3cd; border:1px solid #ffeeba; margin:1rem; padding:1rem; border-radius:4px; color:#856404;">
     <h3> CARA INSTALL PYTHON MENGGUNAKAN CHOCOLATEY  </h3>
     <ul>
-    <li>- Buka shell terminal sebagai Administrator</li>
+    <li>Buka shell terminal sebagai Administrator</li>
     <li>Masukkan perintah berikut : <code>Get-ExecutionPolicy</code> </li>
     <li> jika output muncul "Restricted" Masukkan Perintah berikut</li>
-    <li></li>
-    
+    <li><code>Set-ExecutionPolicy AllSigned</code> atau<br><code>Set-ExecutionPolicy Bypass -Scope Process</code></li>
+    <li> Masukkan perintah berikut selanjutnya: <code>Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))</code></li>
+    <li> Jika berhasil Maka lakukan : <code>choco install python</code></li>
     </div>
     
   </div>  <script>
