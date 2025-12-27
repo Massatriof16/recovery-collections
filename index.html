@@ -1,596 +1,183 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Massatrio's Recovery Collection</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      --primary: #2c3e50;
-      --secondary: #1a1a1a;
-      --accent: #007bff;
-      --success: #28a745;
-      --warning: #ffc107;
-      --danger: #dc3545;
-      --light: #f8f9fa;
-      --dark: #343a40;
-      --gradient-start: #3498db;
-      --gradient-end: #2c3e50;
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-      color: #333;
-      line-height: 1.6;
-      min-height: 100vh;
-    }
-    
-    header {
-      background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
-      color: white;
-      padding: 1.5rem;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    header::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
-      background-size: 100% 100%;
-    }
-    
-    header h2 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-    }
-    
-    header p {
-      margin-bottom: 0.5rem;
-      font-size: 0.95rem;
-    }
-    
-    header a {
-      color: #fff;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      font-weight: 600;
-    }
-    
-    header a:hover {
-      color: var(--warning);
-      text-decoration: underline;
-    }
-    
-    .tabs {
-      display: flex;
-      overflow-x: auto;
-      background: var(--secondary);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    
-    .tabs button {
-      flex: 1;
-      padding: 1rem;
-      background: var(--secondary);
-      color: white;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      min-width: 160px;
-    }
-    
-    .tabs button::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 3px;
-      background: var(--accent);
-      transition: all 0.3s ease;
-    }
-    
-    .tabs button:hover {
-      background: #2a2a2a;
-    }
-    
-    .tabs button:hover::after {
-      width: 100%;
-    }
-    
-    .tabs button.active {
-      background: #2a2a2a;
-    }
-    
-    .tabs button.active::after {
-      width: 100%;
-    }
-    
-    .tab-content {
-      display: none;
-      padding: 2rem 1rem;
-      animation: fadeIn 0.5s ease;
-    }
-    
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .tab-content.active {
-      display: block;
-    }
-    
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    .device-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1rem;
-    }
-    
-    .device {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .device::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 5px;
-      height: 100%;
-      background: var(--accent);
-    }
-    
-    .device:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    }
-    
-    .device h3 {
-      margin-top: 0;
-      color: var(--primary);
-      font-size: 1.4rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid #eee;
-      margin-bottom: 1rem;
-    }
-    
-    .tag {
-      display: inline-block;
-      background: var(--accent);
-      color: white;
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      margin-right: 5px;
-      margin-bottom: 8px;
-    }
-    
-    .tag-warning {
-      background: var(--warning);
-      color: var(--dark);
-    }
-    
-    .device p {
-      margin-bottom: 1rem;
-      color: #555;
-    }
-    
-    .btn-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-    
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 8px 14px;
-      background: var(--success);
-      color: white;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 0.85rem;
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-    }
-    
-    .btn i {
-      margin-right: 5px;
-    }
-    
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      color: white;
-    }
-    
-    .btn-twrp {
-      background: linear-gradient(to right, #4e73df, #224abe);
-    }
-    
-    .btn-orange {
-      background: linear-gradient(to right, #fd7e14, #e25a00);
-    }
-    
-    .btn-shrp {
-      background: linear-gradient(to right, #6f42c1, #4a2c83);
-    }
-    
-    #bug {
-      color: var(--danger);
-      font-weight: bold;
-      background: rgba(220, 53, 69, 0.1);
-      padding: 0.75rem;
-      border-radius: 6px;
-      margin: 1rem 0;
-      border-left: 3px solid var(--danger);
-    }
-    
-    .alert {
-      background: #fff3cd;
-      border: 1px solid #ffeeba;
-      margin: 1.5rem 0;
-      padding: 1.25rem;
-      border-radius: 10px;
-      color: #856404;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .alert::before {
-      content: "⚠️";
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 2rem;
-      opacity: 0.1;
-    }
-    
-    .alert h3 {
-      margin-top: 0;
-      color: #856404;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid rgba(133, 100, 4, 0.2);
-      margin-bottom: 1rem;
-    }
-    
-    .copy-box {
-      background: #f8f9fa;
-      border: 1px solid #e9ecef;
-      padding: 1.25rem;
-      position: relative;
-      border-radius: 8px;
-      font-family: 'Fira Code', monospace;
-      white-space: pre-wrap;
-      word-wrap: break-word;
-      margin: 1rem 0;
-      overflow-x: auto;
-    }
-    
-    .copy-button {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      padding: 5px 10px;
-      font-size: 0.75rem;
-      cursor: pointer;
-      background: var(--accent);
-      color: white;
-      border: none;
-      border-radius: 4px;
-      transition: all 0.3s ease;
-    }
-    
-    .copy-button:hover {
-      background: #0056b3;
-    }
-    
-    .tool-card {
-      background: white;
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    }
-    
-    .tool-card h3 {
-      color: var(--primary);
-      margin-top: 0;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid #eee;
-      margin-bottom: 1rem;
-    }
-    
-    .version-list {
-      list-style: none;
-      padding: 0;
-    }
-    
-    .version-list li {
-      margin-bottom: 0.75rem;
-      padding-left: 1.5rem;
-      position: relative;
-    }
-    
-    .version-list li::before {
-      content: "➤";
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-    }
-    
-    .version-list a {
-      color: var(--accent);
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-    
-    .version-list a:hover {
-      color: #0056b3;
-      text-decoration: underline;
-    }
-    
-    footer {
-      text-align: center;
-      padding: 2rem;
-      margin-top: 2rem;
-      background: var(--dark);
-      color: white;
-    }
-    
-    @media (max-width: 768px) {
-      .device-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .tabs button {
-        min-width: 140px;
-        font-size: 0.9rem;
-        padding: 0.75rem;
-      }
-      
-      header h2 {
-        font-size: 1.5rem;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MASSATRIOF16 Recovery Collection</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
-  <header>
-    <h2><i class="fas fa-mobile-alt"></i> MASSATRIOF16 WEB</h2>
-    <p>
-      <i class="fab fa-telegram"></i> Telegram User: <a href="https://t.me/Massatriof16">@Massatriof16</a>
-          <br>  <i class="fab fa-telegram"></i> Collaborator Telegram: <a href="https://t.me/Athaxdev">@Athaxdev</a> 
-      <br><i class="fab fa-telegram"></i> Channel Telegram: <a href="https://t.me/Mtrunisocubl">MSTR SERVICE</a> 
-      <br><i class="fas fa-users"></i> Forum UNISOC TRANSSION: <a href="https://t.me/forumitelindonesia">Forum</a>
-    </p>
-    <p><i class="fas fa-heart" style="color: #e74c3c;"></i> Terima Kasih Kepada Para Tester yang saya sertakan username di setiap custom recovery</p>
-  </header>  
-  
-  <div class="tabs">
-    <button class="tab-link active" onclick="showTab('intro')"><i class="fas fa-book"></i> Tutorial recovery</button>
-    <button class="tab-link" onclick="showTab('itel')"><i class="fas fa-fire"></i> Custom Recovery</button>
-    <button class="tab-link" onclick="showTab('alat')"><i class="fas fa-tools"></i> Alat UNISOC</button>
-  </div> 
-  
-  <div class="container">
-    <div id="intro" class="tab-content active">
-      <div class="alert">
-        <h3><i class="fas fa-exclamation-triangle"></i> PENTING SEBELUM MENGGUNAKAN CUSTOM RECOVERY</h3>
-        <p><strong>⚠️ Peringatan:</strong> Pastikan kamu memahami langkah-langkah berikut dan memilih CODE NAME DEVICE yang benar:</p>
-        <ul>
-          <li>Backup Vendor_Boot bila perlu</li>
-          <li>adb reboot bootloader</li>
-          <li><code>fastboot getvar current-slot</code> lihat output slot saat ini A atau B</li>
-          <li><code>fastboot flash vendor_boot_(aktif_slot) your_file.img</code> Ganti (aktif_slot) menjadi huruf a atau b sesuai slot aktif saat ini <br>Contoh : Jika yang aktif a maka <code> fastboot flash vendor_boot_a your_file.img</code></li>
-          <li>fastboot reboot recovery</li>
-        </ul>
-        <p><strong>📎 Catatan:</strong> semuanya memiliki bug pada <code>Decrypt Lockscreen</code>.</p>
-      </div> 
-    </div> 
-    
-    <div id="itel" class="tab-content">
-      <div class="device-grid">
-        <div class="device">
-          <h3>Itel S23</h3>
-          <div>
-            <span class="tag"><i class="fas fa-hand-pointer"></i> Touch</span>
-            <span class="tag"><i class="fas fa-unlock"></i> Decrypt</span>
-          </div>
-          <p>Custom Recovery untuk device Itel S23 S665L (A12) <br>Build Date: 6 May 2024<br> Tester : @farispm & @Sprtcrnbry</p>
-          <p id="bug"><i class="fas fa-bug"></i> BUG: <br>- Decrypt Lockscreen </p>
-          <div class="btn-container">
-            <a href="https://github.com/Massatriof16/recovery-collections/releases/download/For_s23/TWRP_S665L.img" class="btn btn-twrp"><i class="fas fa-download"></i> TWRP</a>
-            <a href="#" class="btn btn-orange"><i class="fas fa-download"></i> OrangeFox</a>
-            <a href="#" class="btn btn-shrp"><i class="fas fa-download"></i> SHRP</a>
-          </div>
+
+<header>
+  <h1><i class="fas fa-mobile-alt"></i> MASSATRIOF16 WEB</h1>
+  <div class="header-links">
+    <a class="header-link" href="https://t.me/Massatriof16"><i class="fab fa-telegram"></i> @Massatriof16</a>
+    <a class="header-link" href="https://t.me/Athaxdev"><i class="fab fa-telegram"></i> @Athaxdev</a>
+    <a class="header-link" href="https://t.me/Mtrunisocubl">MSTR SERVICE</a>
+    <a class="header-link" href="https://t.me/forumitelindonesia">Forum UNISOC</a>
+  </div>
+  <p class="header-subtitle">Terima kasih kepada seluruh tester ❤️</p>
+</header>
+
+<div class="tabs">
+  <button class="tab-link active" onclick="showTab(event,'intro')">Tutorial</button>
+  <button class="tab-link" onclick="showTab(event,'itel')">Custom Recovery</button>
+  <button class="tab-link" onclick="showTab(event,'alat')">Alat UNISOC</button>
+</div>
+
+<div class="container">
+
+      <!-- INTRO -->
+      <div id="intro" class="tab-content active">
+          <div class="alert">
+              <h3>⚠️ PERHATIAN</h3>
+          <ul>
+          <li>Backup vendor_boot</li>
+           <li><code>adb reboot bootloader</code></li>
+           <li><code>fastboot getvar current-slot</code></li>
+           <li><code>fastboot flash vendor_boot_a your.img</code></li>
+           <li><code>fastboot reboot recovery</code></li>
+          </ul>
+       <p>Semua recovery memiliki bug decrypt lockscreen.</p>
         </div>
-        
-        <div class="device">
-          <h3>Itel A70</h3>
-          <div>
-            <span class="tag"><i class="fas fa-hand-pointer"></i> Touch</span>
-            <span class="tag"><i class="fas fa-unlock"></i> Decrypt</span>
-          </div>
-          <p>Custom Recovery untuk device Itel A70 A665L (A13)<br> Build Date: 6 Oct 2024 <br> Tester: @Ayru_0v0</p>
-          <p id="bug"><i class="fas fa-bug"></i> BUG: <br>- Decrypt Lockscreen </p>
-          <div class="btn-container">
-            <a href="https://github.com/Massatriof16/recovery-collections/releases/download/for_a70/TWRP_A665L_vendor_boot.img" class="btn btn-twrp"><i class="fas fa-download"></i> TWRP</a>
-            <a href="https://github.com/Massatriof16/recovery-collections/releases/download/for_a70/OrangeFox-Unofficial_A665L.img" class="btn btn-orange"><i class="fas fa-download"></i> OrangeFox</a>
-          </div>
-        </div>
+      </div>
 
-        <div class="device">
-          <h3>Itel S23+ S681LN</h3>
-          <div>
-            <span class="tag"><i class="fas fa-hand-pointer"></i> Touch</span>
-            <span class="tag"><i class="fas fa-unlock"></i> Decrypt</span>
-          </div>
-          <p>Custom Recovery untuk device Itel S23+ S681LN (A13)<br> Build Date: 27 Jun 2025 <br> Tester: @r4dbz</p>
-          <p id="bug"><i class="fas fa-bug"></i> BUG: <br>- Decrypt Lockscreen </p>
-          <div class="btn-container">
-            <a href="https://github.com/Massatriof16/recovery-collections/releases/download/for_s681ln/TWRP_S681LN_vendor_boot.img" class="btn btn-twrp"><i class="fas fa-download"></i> TWRP</a>
-            <a href="https://github.com/Massatriof16/recovery-collections/releases/download/for_s681ln/OrangeFox-Unofficial_S681LN.img" class="btn btn-orange"><i class="fas fa-download"></i> OrangeFox</a>
-            <a href="https://github.com/Massatriof16/recovery-collections/releases/download/for_s681ln/SHRP_S681LN.img" class="btn btn-shrp"><i class="fas fa-download"></i> SHRP</a>
-          </div>
-        </div>
-
-        <div class="device">
-          <h3>Itel P55 NFC</h3>
-          <div>
-            <span class="tag"><i class="fas fa-hand-pointer"></i> Touch</span>
-            <span class="tag"><i class="fas fa-unlock"></i> Decrypt</span>
-          </div>
-          <p>Custom Recovery untuk device Itel P55 NFC A666LN (A13) <br> Build Date: 13 Sept 2024 <br>Tester: @akunata3 & @kakvandu</p>
-          <p id="bug"><i class="fas fa-bug"></i> BUG: <br>- Decrypt Lockscreen <br>- Battery</p>
-          <div class="btn-container">
-            <a href="https://github.com/Massatriof16/recovery-collections/releases/download/for_p55nfc/Twrp_P55_NFC_A666LN.img" class="btn btn-twrp"><i class="fas fa-download"></i> TWRP</a>
-            <a href="https://github.com/Massatriof16/recovery-collections/releases/download/for_p55nfc/OrangeFox-Unofficial_A666LN.img" class="btn btn-orange"><i class="fas fa-download"></i> OrangeFox</a>
-            <a href="https://github.com/Massatriof16/recovery-collections/releases/download/for_p55nfc/SHRP_A666LN.img" class="btn btn-shrp"><i class="fas fa-download"></i> SHRP</a>
-          </div>
-        </div>
-
-
-        <div class="device">
-          <h3>Itel P65 P671L A14 </h3>
-          <div>
-            <span class="tag"><i class="fas fa-hand-pointer"></i> Touch</span>
-            <span class="tag"><i class="fas fa-unlock"></i> Decrypt</span>
-          </div>
-          <p>Custom Recovery untuk device Itel P65 P671L <br> Build Date: 16 Nov 2025 <br>Tester: @KurumiDev & @npcvbn</p>
-          <p id="bug"><i class="fas fa-bug"></i> BUG: <br>- Decrypt Lockscreen</p>
-          <div class="btn-container">
-            <a href="https://github.com/Massatriof16/recovery-collections/releases/download/for_p671l/TWRP_P671L_vendor_boot.img" class="btn btn-twrp"><i class="fas fa-download"></i> TWRP</a>
-            <a href="https://github.com/Massatriof16/recovery-collections/releases/download/for_p671l/OrangeFox-Unofficial_P671L.img" class="btn btn-orange"><i class="fas fa-download"></i> OrangeFox</a>
-          </div>
-        </div>
-        
-
-
-
-        
-        <div class="device">
-          <h3>Infinix Hot 30i X669 (A12)</h3>
-          <div>
-            <span class="tag"><i class="fas fa-hand-pointer"></i> Touch</span>
-            <span class="tag"><i class="fas fa-unlock"></i> Decrypt</span>
-          </div>
-          <p>Custom Recovery untuk Device infinix hot 30i (X669) <br> Build Date: 28 Jan 2025<br>Tester: @toshitzz</p>
-          <p id="bug"><i class="fas fa-bug"></i> BUG: <br>- Decrypt Lockscreen </p>
-          <div class="btn-container">
-            <a href="https://github.com/Massatriof16/recovery-collections/releases/download/for_x669/TWRP_X669_vendor_boot.img" class="btn btn-twrp"><i class="fas fa-download"></i> TWRP</a>
-            <a href="https://github.com/Massatriof16/recovery-collections/releases/download/for_x669/OrangeFox-Unofficial_X669.img" class="btn btn-orange"><i class="fas fa-download"></i> OrangeFox</a>
-          </div>
-        </div>
-        
-        <div class="device">
-          <h3>Infinix Hot 40i X6528B (A13)</h3>
-          <div>
-            <span class="tag"><i class="fas fa-hand-pointer"></i> Touch</span>
-            <span class="tag"><i class="fas fa-unlock"></i> Decrypt</span>
-          </div>
-          <p>custom Recovery untuk device Infinix Hot 40i X6528B<br> Build Date: 25 Jun 2025<br>Tester: @Onelov1226</p>
-          <p id="bug"><i class="fas fa-bug"></i> BUG: <br>- Decrypt Lockscreen </p>
-          <div class="btn-container">
-            <a href="https://github.com/Massatriof16/recovery-collections/releases/download/for_x6528b/TWRP_X6528_vendor_boot.img" class="btn btn-twrp"><i class="fas fa-download"></i> TWRP</a>
-            <a href="https://github.com/Massatriof16/recovery-collections/releases/download/for_x6528b/OrangeFox-Unofficial_X6528.img" class="btn btn-orange"><i class="fas fa-download"></i> OrangeFox</a>
-            <a href="https://github.com/Massatriof16/recovery-collections/releases/download/for_x6528b/SHRP_X6528.img" class="btn btn-shrp"><i class="fas fa-download"></i> SHRP</a>
-          </div>
-        </div>
-        
-                <div class="device">
-          <h3>Realme C33 RMX3624 A13</h3>
-          <div>
-            <span class="tag"><i class="fas fa-hand-pointer"></i> Touch</span>
-            <span class="tag"><i class="fas fa-unlock"></i> Decrypt</span>
-          </div>
-          <p>custom Recovery untuk device REALME C33 Android 13 RMX3624<br> Build Date: 24 Sept 2025<br>Tester: @yvil_re</p>
-          <p id="bug"><i class="fas fa-bug"></i> BUG: <br>- Decrypt Lockscreen </p>
-          <div class="btn-container">
-            <a href="https://github.com/Massatriof16/recovery-collections/releases/download/for_rmx3624/TWRP_RMX3624_vendor_boot.img" class="btn btn-twrp"><i class="fas fa-download"></i> TWRP</a>
-      <!--      <a href="https://github.com/Massatriof16/recovery-collections/releases/download/for_x6528b/OrangeFox-Unofficial_X6528.img" class="btn btn-orange"><i class="fas fa-download"></i> OrangeFox</a>
-          <a href="https://github.com/Massatriof16/recovery-collections/releases/download/for_x6528b/SHRP_X6528.img" class="btn btn-shrp"><i class="fas fa-download"></i> SHRP</a> -->
-          </div>
-        </div>
-
-         <div class="device">
-          <h3>Tecno Spark Go 1 KL4 A14</h3>
-          <div>
-            <span class="tag"><i class="fas fa-hand-pointer"></i> Touch</span>
-            <span class="tag"><i class="fas fa-unlock"></i> Decrypt</span>
-          </div>
-          <p>custom Recovery untuk device Tecno spark Go 1 KL4<br> Build Date: 27 Des 2025<br>Tester: @shinmorik, @NethWs3Dev</p>
-          <p id="bug"><i class="fas fa-bug"></i> BUG: <br>- Decrypt Lockscreen </p>
-          <div class="btn-container">
-       <!--     <a href="https://github.com/Massatriof16/recovery-collections/releases/download/for_rmx3624/TWRP_RMX3624_vendor_boot.img" class="btn btn-twrp"><i class="fas fa-download"></i> TWRP</a> -->
-            <a href="https://github.com/Massatriof16/recovery-collections/releases/download/for_kl4/OrangeFox-Unofficial_KL4.img" class="btn btn-orange"><i class="fas fa-download"></i> OrangeFox</a>
-        <!--  <a href="https://github.com/Massatriof16/recovery-collections/releases/download/for_x6528b/SHRP_X6528.img" class="btn btn-shrp"><i class="fas fa-download"></i> SHRP</a> -->
-          </div>
-         </div>
-
-        <div class="device">
-          <h3>Infinix Smart 8 (A13)</h3>
-          <div>
-            <span class="tag"><i class="fas fa-hand-pointer"></i> Touch</span>
-            <span class="tag"><i class="fas fa-unlock"></i> Decrypt</span>
-          </div>
-          <p>Custom Recovery untuk device Infinix Smart 8 X6525<br> Build Date: 27 Jun 2025<br>Tester: ARGA NEED TO TOUCH SOME GRASS</p>
-          <p id="bug"><i class="fas fa-bug"></i> BUG: <br>- Decrypt Lockscreen </p>
-          <div class="btn-container">
-            <a href="https://github.com/Massatriof16/recovery-collections/releases/download/for_x6525/TWRP_X6525_vendor_boot.img" class="btn btn-twrp"><i class="fas fa-download"></i> TWRP</a>
-            <a href="https://github.com/Massatriof16/recovery-collections/releases/download/for_x6525/OrangeFox-Unofficial_X6525.img" class="btn btn-orange"><i class="fas fa-download"></i> OrangeFox</a>
-            <a href="https://github.com/Massatriof16/recovery-collections/releases/download/for_x6525/SHRP_X6525.img" class="btn btn-shrp"><i class="fas fa-download"></i> SHRP</a>
-          </div>
-        </div> 
+<!-- DEVICES -->
+  <div id="itel" class="tab-content">
+    <div class="device-grid">
+    <div class="device">
+      <h3>Itel S23 S665L</h3>
+      <span class="tag">Touch</span>
+      <span class="tag">Decrypt</span>
+      <p>Android 12 • Tester: @farispm<br>Build Date : 6 May 2024</p>
+      <div class="bug">BUG: Decrypt Lockscreen</div>
+      <div class="btn-container">
+        <a class="btn btn-twrp" href="#">TWRP</a>
+        <a class="btn btn-orange" href="#">OrangeFox</a>
       </div>
     </div>
     
-    <div id="alat" class="tab-content">
-      <div class="tool-card">
-        <h3><i class="fas fa-exclamation-triangle"></i> PERHATIAN</h3>
-        <p>HARAP UNINSTALL SMADAV ATAU ANTI VIRUS LAIN KARENA MENYEBABKAN TOOLS DIBERHENTIKAN SECARA PAKSA OLEH ANTI VIRUS LAINNYA ANDA TETAP BISA PAKAI DEFENDER MICROSOFT</p>
+    <div class="device">
+      <h3>Itel P55 NFC A666LN</h3>
+      <span class="tag">Touch</span>
+      <span class="tag">Decrypt</span>
+      <p>Android 13 • Tester: @akunata3, @kakvandu<br>Build Date : 13 sept 2024</p>
+      <div class="bug">BUG: Decrypt Lockscreen</div>
+      <div class="btn-container">
+        <a class="btn btn-orange" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_p55nfc/OrangeFox-Unofficial_A666LN.img">TWRP</a>
+        <a class="btn btn-twrp" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_p55nfc/Twrp_P55_NFC_A666LN.img">OrangeFox</a>
       </div>
-      
-      <div class="tool-card">
-        <h3><i class="fas fa-bolt"></i> Spreadtrum_Flash</h3>
+    </div>
+
+    <div class="device">
+      <h3>Itel A70 A665L</h3>
+      <span class="tag">Touch</span>
+      <span class="tag">Decrypt</span>
+      <p>Android 13 • Tester: @Ayru_0v0<br>Build Date : 6 oct 2024</p>
+      <div class="bug">BUG: Decrypt Lockscreen</div>
+      <div class="btn-container">
+        <a class="btn btn-twrp" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_a70/TWRP_A665L_vendor_boot.img">TWRP</a>
+        <a class="btn btn-orange" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_a70/OrangeFox-Unofficial_A665L.img">OrangeFox</a>
+      </div>
+    </div>
+    
+    <div class="device">
+      <h3>Infinix Hot 30i X669</h3>
+      <span class="tag">Touch</span>
+      <span class="tag">Decrypt</span>
+      <p>Android 12 • Tester: @toshitzz<br>Build Date : 28 jan 2025</p>
+      <div class="bug">BUG: Decrypt Lockscreen</div>
+      <div class="btn-container">
+        <a class="btn btn-twrp" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_x669/TWRP_X669_vendor_boot.img">TWRP</a>
+        <a class="btn btn-orange" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_x669/OrangeFox-Unofficial_X669.img">OrangeFox</a>
+      </div>
+    </div>
+    
+    <div class="device">
+      <h3>Infinix Hot 40i X6528B</h3>
+      <span class="tag">Touch</span>
+      <span class="tag">Decrypt</span>
+      <p>Android 13 • Tester: @Onelov1226<br>Build Date : 25 Jun 2025</p>
+      <div class="bug">BUG: Decrypt Lockscreen</div>
+      <div class="btn-container">
+        <a class="btn btn-twrp" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_x6528b/TWRP_X6528_vendor_boot.img">TWRP</a>
+        <a class="btn btn-orange" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_x6528b/OrangeFox-Unofficial_X6528.img">OrangeFox</a>
+      </div>
+    </div>
+
+    <div class="device">
+      <h3>Infinix smart 8 X6525</h3>
+      <span class="tag">Touch</span>
+      <span class="tag">Decrypt</span>
+      <p>Android 13 • Tester: @More_than_one1<br>Build Date : 27 Jun 2025</p>
+      <div class="bug">BUG: Decrypt Lockscreen</div>
+      <div class="btn-container">
+        <a class="btn btn-twrp" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_x6525/TWRP_X6525_vendor_boot.img">TWRP</a>
+        <a class="btn btn-orange" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_x6525/OrangeFox-Unofficial_X6525.img">OrangeFox</a>
+      </div>
+    </div>
+ 
+     <div class="device">
+      <h3>Itel S23+ S681LN </h3>
+      <span class="tag">Touch</span>
+      <span class="tag">Decrypt</span>
+      <p>Android 13 • Tester: @r4dbz<br>Build Date : 27 Jun 2025</p>
+      <div class="bug">BUG: Decrypt Lockscreen</div>
+      <div class="btn-container">
+        <a class="btn btn-twrp" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_s681ln/TWRP_S681LN_vendor_boot.img">TWRP</a>
+        <a class="btn btn-orange" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_s681ln/OrangeFox-Unofficial_S681LN.img" >OrangeFox</a>
+      </div>
+    </div>
+ 
+    <div class="device">
+      <h3>Realme C33 RMX3624</h3>
+      <span class="tag">Touch</span>
+      <span class="tag">Decrypt</span>
+      <p>Android 13 • Tester: @yvil_re<br>Build Date : 24 sept 2025</p>
+      <div class="bug">BUG: Decrypt Lockscreen</div>
+      <div class="btn-container">
+        <a class="btn btn-twrp" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_rmx3624/TWRP_RMX3624_vendor_boot.img">TWRP</a>
+         <a class="btn btn-orange" href="#">OrangeFox</a> 
+      </div>
+    </div>
+    
+    <div class="device">
+      <h3>Itel P65 P671L / LN</h3>
+      <span class="tag">Touch</span>
+      <span class="tag">Decrypt</span>
+      <p>Android 14 • Tester: @KurumiDev, @npcvbn<br>Build Date : 16 Nov 2025</p>
+      <div class="bug">BUG: Decrypt Lockscreen</div>
+      <div class="btn-container">
+        <a class="btn btn-twrp" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_p671l/TWRP_P671L_vendor_boot.img">TWRP</a>
+        <a class="btn btn-orange" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_p671l/OrangeFox-Unofficial_P671L.img"">OrangeFox</a>
+      </div>
+    </div>
+ 
+    
+    <div class="device">
+      <h3>Tecno Spark Go 1 KL4</h3>
+      <span class="tag">Touch</span>
+      <span class="tag">Decrypt</span>
+      <p>Android 14 • Tester: @shinmorik, @NethWs3Dev<br>Build Date : 27 Des 2025</p>
+      <div class="bug">BUG: Decrypt Lockscreen</div>
+      <div class="btn-container">
+        <a class="btn btn-twrp" href="#">TWRP</a> 
+        <a class="btn btn-orange" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_kl4/OrangeFox-Unofficial_KL4.img">OrangeFox</a>
+      </div>
+    </div>
+
+</div>
+</div>
+
+<!-- TOOLS -->
+<div id="alat" class="tab-content">
+  <div class="device">
+    <h3>Spreadtrum Flash Tool</h3>
+    <p>Windows & Linux support</p>
         <p>UPDATE 27 <br>
         - Optimasi beberapa Fitur Cek Info Update lengkap <a href="https://t.me/mtrgroupunusic/5166" >disini</a></p>
         <h4>Versi Windows:</h4>
@@ -611,53 +198,23 @@
         </ul>
         
         <p><strong>📎 Disclaimer:</strong> Ini hanya menu batch/python/bash/Gui buatan saya dan AthaxDev untuk memudahkan penggunaan <code>spd_dump</code> yang dibuat oleh @TomKing062 yg ada di githubnya. Terima kasih banyak untuk @TomKing062</p>
-      </div>
-      
-      <div class="tool-card">
-        <h3><i class="fas fa-unlock"></i> TEMPLATE PERINTAH UNLOCK BOOTLOADER</h3>
-        <p>cara lihat soc model gunakan perintah adb berikut <br> <code>adb shell getprop ro.soc.model</code> atau<br> <code>adb shell getprop ro.board.platform</code></p>
-        <ul class="version-list">
-          <li><a href="https://github.com/Massatriof16/recovery-collections/releases/download/Spd_flash/ums9230.txt">UMS9230</a></li>
-          <li><a href="https://github.com/Massatriof16/recovery-collections/releases/download/Spd_flash/sc9863a.txt">SC9863A</a></li>
-          <li><a href="https://github.com/Massatriof16/recovery-collections/releases/download/Spd_flash/ums512.txt">UMS512</a></li>
-        </ul>
-      </div>
-
-
-    </div>
   </div>
-  
-  <footer>
-    <p>&copy; 2025 MassatrioF16 & AthaxDev - All Rights Reserved</p>
-  </footer>
-  
-  <script>
-    function showTab(tabId) {
-      const tabs = document.querySelectorAll('.tab-content');
-      const buttons = document.querySelectorAll('.tab-link');
-      tabs.forEach(tab => tab.classList.remove('active'));
-      buttons.forEach(btn => btn.classList.remove('active'));
-      document.getElementById(tabId).classList.add('active');
-      event.currentTarget.classList.add('active');
-    }
-    
-    function copyText(id) {
-      const el = document.getElementById(id);
-      const range = document.createRange();
-      range.selectNodeContents(el);
-      const sel = window.getSelection();
-      sel.removeAllRanges();
-      sel.addRange(range);
-      document.execCommand("copy");
-      sel.removeAllRanges();
-      
-      // Menampilkan notifikasi
-      const originalText = event.target.textContent;
-      event.target.textContent = "Tersalin!";
-      setTimeout(() => {
-        event.target.textContent = originalText;
-      }, 1500);
-    }
-  </script>
+</div>
+
+
+
+<footer>
+  &copy; 2025 MassatrioF16 & AthaxDev
+</footer>
+
+<script>
+function showTab(e,id){
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-link').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  e.currentTarget.classList.add('active');
+}
+</script>
+
 </body>
 </html>
