@@ -157,6 +157,16 @@ header h1{
 .btn-orange{background:#fd7e14}
 .btn-shrp{background:#6f42c1}
 
+.button_d{
+padding:.1rem 1rem;
+  border-radius:7px;
+  text-decoration:none;
+  color:#000;
+  font-weight:300;
+  transition:.2s
+}
+.button_d:hover{transform:translateY(-2px)}
+.btn-download{background:#00FFFF}
 /* FOOTER */
 footer{
   text-align:center;
