@@ -171,11 +171,16 @@
     </div>
 
 </div>
+
+
+
 </div>
 
 <!-- TOOLS -->
 <div id="alat" class="tab-content">
-  <div class="device">
+ <div class="device-grid">
+ 
+  <div class="alert">
     <h3>Spreadtrum Flash Tool</h3>
     <p>Windows & Linux support</p>
         <p>UPDATE 28.5 <br>
@@ -195,8 +200,23 @@
         
         <p><strong>📎 Disclaimer:</strong> Ini hanya menu GUI buatan saya dan AthaxDev untuk memudahkan penggunaan <code>spd_dump</code> yang dibuat oleh @TomKing062 yg ada di githubnya. Terima kasih banyak untuk @TomKing062</p>
   </div>
+
+
+<div class="alert">
+ <h3> Template Perintah sesuai Soc model</h3>
+ <p> Untuk mengetahui Soc model device unisoc anda cek menggunakan adb berikut perintahnya <br><br>
+ <code>adb shell getprop ro.soc.model</code><br><br>atau<br><br> <code>adb shell ro.board.platform </code><br><br> Pastikan output Sesuai dengan soc model yg ada di bawah ini Ya! <p>
+ <p><br>
+ <div class="btn-container">
+              <a class="button_d btn-download" href="https://github.com/Massatriof16/recovery-collections/releases/download/Spd_flash/ums9230.txt">UMS9230</a>
+        <a class="button_d btn-download" href="https://github.com/Massatriof16/recovery-collections/releases/download/Spd_flash/sc9863a.txt">SC9863A</a>
+                <a class="button_d btn-download" href="https://github.com/Massatriof16/recovery-collections/releases/download/Spd_flash/ums512.txt">SC9863A</a>
+      </div>
+</p>
 </div>
 
+</div>
+</div> 
 
 
 <footer>
@@ -205,7 +225,6 @@
 
 <script>
 
-let date = $derived(currentDate.getFullyear());
 
 
 function showTab(e,id){
