@@ -53,6 +53,9 @@ header h1{
   opacity:.9
 }
 
+.link{
+color: yellow;
+}
 /* ===== TABS ===== */
 .tabs{
   position:sticky;
