@@ -53,8 +53,8 @@ header h1{
   opacity:.9
 }
 
-.link{
-color: yellow;
+a{
+color: #ff5252;
 }
 /* ===== TABS ===== */
 .tabs{
