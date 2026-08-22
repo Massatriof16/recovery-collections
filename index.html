@@ -3,416 +3,197 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MASSATRIOF16 Recovery Collection</title>
-
+<title>MASSATRIOF16 WEB — Unisoc Recovery &amp; Tools</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="style.css">
 
 </head>
-
 <body>
 
-<header>
-  <h1><i class="fas fa-mobile-alt"></i> MASSATRIOF16 WEB</h1>
-  <div class="header-links">
-    <a class="header-link" href="https://t.me/Massatriof16"><i class="fab fa-telegram"></i> @Massatriof16</a>
-    <a class="header-link" href="https://t.me/Athaxdev"><i class="fab fa-telegram"></i> @Athaxdev</a>
-    <a class="header-link" href="https://t.me/Mtrunisocubl">MSTR SERVICE</a>
-    <a class="header-link" href="https://t.me/forumitelindonesia">Forum UNISOC</a>
+<div class="overlay" id="overlay"></div>
+
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-head">
+    <div class="mark">MASSATRIOF16</div>
+    <div class="sub">Unisoc Toolkit</div>
   </div>
-  <p class="header-subtitle">Terima kasih kepada seluruh tester ❤️</p>
-  <p><br>Yang mau Jasa UBL dan Root Murah 80ribuan bisa hubungi telegram @Massatriof16</p>
+  <ul class="nav-list">
+    <li class="nav-item active" data-view="home"><i class="fas fa-house"></i> Home</li>
+    <li class="nav-item" data-view="recovery"><i class="fas fa-mobile-screen-button"></i> Custom Recovery</li>
+    <li class="nav-item" data-view="tools"><i class="fas fa-wrench"></i> Tools Unisoc</li>
+  </ul>
+  <div class="sidebar-foot">© 2025/2026 MassatrioF16 &amp; AthaxDev</div>
+</aside>
+
+<header class="topbar">
+  <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  <div class="brand">
+    <div class="mark">MASSATRIOF16 WEB</div>
+    <div class="sub">Unisoc Recovery &amp; Flash Tools</div>
+  </div>
 </header>
 
-<div class="tabs">
-  <button class="tab-link active" onclick="showTab(event,'tutorial')">Tutorial</button>
-  <button class="tab-link" onclick="showTab(event,'custom-recovery')">Custom Recovery</button>
-  <button class="tab-link" onclick="showTab(event,'alat')">Alat UNISOC</button>
-</div>
+<main>
 
-<div class="container">
-
-      <!-- INTRO -->
-      <div id="tutorial" class="tab-content active">
-          <div class="alert">
-              <h3>⚠️ PERHATIAN</h3>
-          <ul>
-          <li>Backup vendor_boot</li>
-           <li><code>adb reboot bootloader</code></li>
-           <li><code>fastboot getvar current-slot</code></li>
-           <li><code>fastboot flash vendor_boot_(current-slot) your.img</code></li>
-           <li><code>fastboot reboot recovery</code></li>
-          </ul>
-       <p>Semua recovery memiliki bug decrypt lockscreen.</p>
-        </div>
-      </div>
-
-<!-- DEVICES -->
-  <div id="custom-recovery" class="tab-content">
-    <div class="device-grid">
-    <div class="device">
-      <h3>Itel S23 S665L</h3>
-      <span class="tag">Touch</span>
-      <span class="tag">Decrypt</span>
-      <p>Android 12 • Tester: @farispm<br>Build Date : 6 May 2024</p>
-      <div class="bug">BUG: Decrypt Lockscreen</div>
-      <div class="btn-container">
-        <a class="btn btn-twrp" href="https://github.com/Massatriof16/recovery-collections/releases/download/For_s23/TWRP_S665L.img">TWRP</a>
-        <a class="btn btn-orange" href="https://github.com/Massatriof16/recovery-collections/releases/download/For_s23/OrangeFox_S665L.img">OrangeFox</a>
-      </div>
-    </div>
-    
-    <div class="device">
-      <h3>Itel P55 NFC A666LN</h3>
-      <span class="tag">Touch</span>
-      <span class="tag">Decrypt</span>
-      <p>Android 13 • Tester: @akunata3, @kakvandu<br>Build Date : 13 sept 2024</p>
-      <div class="bug">BUG: Decrypt Lockscreen</div>
-      <div class="btn-container">
-        <a class="btn btn-twrp" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_p55nfc/Twrp_P55_NFC_A666LN.img">TWRP</a>
-        <a class="btn btn-orange" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_p55nfc/OrangeFox-Unofficial_A666LN.img">OrangeFox</a>
-      </div>
+  <!-- ============ HOME ============ -->
+  <section class="view active" id="view-home">
+    <div class="hero">
+      <i class="fas fa-mobile-alt logo"></i>
+      <h1>Selamat Datang Di Web Massatrio</h1>
+      <p>Disini Tempatnya Custom recovery device unisoc dan akan di-update untuk device lainnya! (jika ada yang mau jadi tester)</p>
+      <div class="promo">💬 Menyediakan Jasa <b>UBL, root &amp; Flashing firmware</b> Hp chipset unisoc yang terkenal sulit bisa hubungi Telegram <b>@Massatriof16</b> Pastinya work, selalu Update device baru untuk Unlock, pastinya terpercaya </div>
     </div>
 
-    <div class="device">
-      <h3>Itel A70 A665L</h3>
-      <span class="tag">Touch</span>
-      <span class="tag">Decrypt</span>
-      <p>Android 13 • Tester: @Ayru_0v0<br>Build Date : 6 oct 2024</p>
-      <div class="bug">BUG: Decrypt Lockscreen</div>
-      <div class="btn-container">
-        <a class="btn btn-twrp" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_a70/TWRP_A665L_vendor_boot.img">TWRP</a>
-        <a class="btn btn-orange" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_a70/OrangeFox-Unofficial_A665L.img">OrangeFox</a>
+    <div class="section">
+      <div class="section-title"><i class="fas fa-images"></i> Testimoni</div>
+      <p class="proof-caption">Berikut Testimoni UBL dan root dari chipset Unisoc yang sulit UBL dan root tersebut.</p>
+      <div class="proof-grid">
+        <div class="img-box"><i class="fas fa-image"></i><img src="pict/nubia.jpg" alt="Nubia 1"></div>
+        <div class="img-box"><i class="fas fa-image"></i><img src="pict/nubia2.jpg" alt="Nubia 2"></div>
+        <div class="img-box"><i class="fas fa-image"></i><img src="pict/itel.jpg" alt="Itel"></div>
+        <div class="img-box"><i class="fas fa-image"></i><img src="pict/blade.jpg" alt="Blade"></div>
       </div>
     </div>
-    
-    <div class="device">
-      <h3>Infinix Hot 30i X669</h3>
-      <span class="tag">Touch</span>
-      <span class="tag">Decrypt</span>
-      <p>Android 12 • Tester: @toshitzz<br>Build Date : 28 jan 2025</p>
-      <div class="bug">BUG: Decrypt Lockscreen</div>
-      <div class="btn-container">
-        <a class="btn btn-twrp" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_x669/TWRP_X669_vendor_boot.img">TWRP</a>
-        <a class="btn btn-orange" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_x669/OrangeFox-Unofficial_X669.img">OrangeFox</a>
-      </div>
+  </section>
+
+  <!-- ============ CUSTOM RECOVERY ============ -->
+  <section class="view" id="view-recovery">
+    <div class="page-head">
+      <h2>Custom Recovery</h2>
+      <p>Daftar HP yang memiliki custom recovery. Silakan pilih sesuai tipe perangkat kamu.</p>
     </div>
-    
-    <div class="device">
-      <h3>Infinix Hot 40i X6528B</h3>
-      <span class="tag">Touch</span>
-      <span class="tag">Decrypt</span>
-      <p>Android 13 • Tester: @Onelov1226<br>Build Date : 25 Jun 2025</p>
-      <div class="bug">BUG: Decrypt Lockscreen</div>
-      <div class="btn-container">
-        <a class="btn btn-twrp" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_x6528b/TWRP_X6528_vendor_boot.img">TWRP</a>
-        <a class="btn btn-orange" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_x6528b/OrangeFox-Unofficial_X6528.img">OrangeFox</a>
-      </div>
+    <div class="device-grid" id="deviceGrid"></div>
+  </section>
+
+  <!-- ============ TOOLS UNISOC ============ -->
+  <section class="view" id="view-tools">
+    <div class="page-head">
+      <h2>Tools Unisoc</h2>
+      <p>Download tools, driver, dan dokumentasi untuk flashing perangkat Unisoc/Spreadtrum.</p>
     </div>
 
-    <div class="device">
-      <h3>Infinix smart 8 X6525</h3>
-      <span class="tag">Touch</span>
-      <span class="tag">Decrypt</span>
-      <p>Android 13 • Tester: @More_than_one1<br>Build Date : 27 Jun 2025</p>
-      <div class="bug">BUG: Decrypt Lockscreen</div>
-      <div class="btn-container">
-        <a class="btn btn-twrp" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_x6525/TWRP_X6525_vendor_boot.img">TWRP</a>
-        <a class="btn btn-orange" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_x6525/OrangeFox-Unofficial_X6525.img">OrangeFox</a>
-      </div>
-    </div>
- 
-     <div class="device">
-      <h3>Itel S23+ S681LN </h3>
-      <span class="tag">Touch</span>
-      <span class="tag">Decrypt</span>
-      <p>Android 13 • Tester: @r4dbz<br>Build Date : 27 Jun 2025</p>
-      <div class="bug">BUG: Decrypt Lockscreen</div>
-      <div class="btn-container">
-        <a class="btn btn-twrp" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_s681ln/TWRP_S681LN_vendor_boot.img">TWRP</a>
-        <a class="btn btn-orange" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_s681ln/OrangeFox-Unofficial_S681LN.img" >OrangeFox</a>
-      </div>
-    </div>
- 
-    <div class="device">
-      <h3>Realme C33 RMX3624</h3>
-      <span class="tag">Touch</span>
-      <span class="tag">Decrypt</span>
-      <p>Android 13 • Tester: @yvil_re<br>Build Date : 24 sept 2025</p>
-      <div class="bug">BUG: Decrypt Lockscreen</div>
-      <div class="btn-container">
-        <a class="btn btn-twrp" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_rmx3624/TWRP_RMX3624_vendor_boot.img">TWRP</a>
-         <a class="btn btn-orange" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_rmx3624/OrangeFox-Unofficial_RMX3624.img">OrangeFox</a> 
-      </div>
-    </div>
-    
-    <div class="device">
-      <h3>Itel P65 P671L / LN</h3>
-      <span class="tag">Touch</span>
-      <span class="tag">Decrypt</span>
-      <p>Android 14 • Tester: @KurumiDev, @npcvbn<br>Build Date : 16 Nov 2025</p>
-      <div class="bug">BUG: Decrypt Lockscreen</div>
-      <div class="btn-container">
-        <a class="btn btn-twrp" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_p671l/TWRP_P671L_vendor_boot.img">TWRP</a>
-        <a class="btn btn-orange" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_p671l/OrangeFox-Unofficial_P671L.img"">OrangeFox</a>
-      </div>
-    </div>
- 
-    
-    <div class="device">
-      <h3>Tecno Spark Go 1 KL4</h3>
-      <span class="tag">Touch</span>
-      <span class="tag">Decrypt</span>
-      <p>Android 14 • Tester: @shinmorik, @NethWs3Dev<br>Build Date : 27 Des 2025</p>
-      <div class="bug">BUG: Decrypt Lockscreen</div>
-      <div class="btn-container">
-        <a class="btn btn-twrp" href="#">TWRP</a> 
-        <a class="btn btn-orange" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_kl4/OrangeFox-Unofficial_KL4.img">OrangeFox</a>
-      </div>
-    </div>
-    
-    <div class="device">
-      <h3>REALME C63/NOTE 60 (RMX3939)</h3>
-      <span class="tag">Touch</span>
-      <span class="tag">Decrypt</span>
-      <p>Android 14 • Collaborator: @KazeTheLight<br>Build Date : 21 Mar 2026</p>
-      <div class="bug">BUG: Decrypt Lockscreen</div>
-      <div class="btn-container">
-        <a class="btn btn-twrp" href="#">TWRP</a> 
-        <a class="btn btn-orange" href="#">OrangeFox</a>
-      </div>
-    </div>
-
-      <div class="device">
-      <h3>ITEL CITY 100 (C671L)</h3>
-      <span class="tag">Touch</span>
-      <span class="tag">Decrypt</span>
-      <p>Android 14 <br>Build Date : 14 Mei 2026</p>
-      <div class="bug">BUG: Decrypt Lockscreen</div>
-      <div class="btn-container">
-        <a class="btn btn-twrp" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_c671l/TWRP_C671L_vendor_boot.img">TWRP</a> 
-        <a class="btn btn-orange" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_c671l/OrangeFox-Unofficial_C671L.img">OrangeFox</a>
-      </div>
-    </div>
-
-      <div class="device">
-      <h3>Advan Tab VX Lite 1013 </h3>
-      <span class="tag">Touch</span>
-      <span class="tag">Decrypt</span>
-      <p>Android 13 <br>Build Date : 9 Aug 2026</p>
-      <div class="bug">BUG: Decrypt Lockscreen</div>
-      <div class="btn-container">
-        <a class="btn btn-twrp" href="https://github.com/Massatriof16/recovery-collections/releases/download/for_1h10/TWRP_1h10_vendor_boot.img.xz">TWRP</a> 
-        
-      </div>
-      </div>
-
-</div>
-
-
-
-</div>
-
-<!-- TOOLS -->
-<div id="alat" class="tab-content">
- <div class="device-grid">
- 
-  <div class="alert">
-    <h3>Spreadtrum Flash Tool</h3>
-    <p>Windows & Linux support</p>
-        <p>UPDATE Versi 35 <br>
-        - BACA : DIKARENAKAN UPDATE TERBARU HARAP MATIKAN SEMUA ANTI VIRUS YANG ADA AGAR FILE TIDAK DIHAPUS OTOMATIS <br>
-        - Optimasi beberapa Fitur Cek Info Update lengkap ada di grup MSTR</p><br>
-        <h4> Download Tombol bawah ini : </h4>
-              <div class="btn-container">
-              <a class="button_d btn-download" href="https://github.com/Massatriof16/recovery-collections/releases/download/Spd_flash/spreadtrum_flash_V35.zip">WINDOWS V35</a>
-        <a class="button_d btn-download" href="https://github.com/Massatriof16/recovery-collections/releases/download/Spd_flash/spreadtrum_flash_linux_V35.zip">LINUX V35</a>
-                <a class="button_d btn-download" href="https://github.com/Massatriof16/recovery-collections/releases/download/Spd_flash/spreadtrum_flash_V35_Owner.zip">WINDOWS V35 OWNER </a>
-      </div>
-    <br>
-        <h4> Driver :</h4>
-        <ul class="version-list">
-          <li><a id="link" href="https://github.com/Massatriof16/recovery-collections/releases/download/Spd_flash/SPD_Driver_R4.20.4201.zip">DRIVER UNISOC WINDOWS</a> (driver windows)</li>
-          <li> <a id="link" href="https://github.com/Massatriof16/recovery-collections/releases/download/Spd_flash/platform-tools-latest-windows.zip">Platform Tools</a></li>
-          <br>
-          <li>DRIVER LINUX : <code>sudo apt install libusb-1.0-0-dev</code> (ketik diterminal)</li>
+    <div class="card">
+      <div class="tool-block">
+        <h3><i class="fas fa-bolt"></i> Spreadtrum Flash Tool — v35</h3>
+        <p class="desc">Support Windows &amp; Linux. Matikan antivirus saat instalasi agar file tidak terhapus otomatis. Info update lengkap ada di grup MSTR.</p>
+        <ul class="link-list">
+          <li><a class="dl safe-link" href="javascript:void(0)" data-href="https://github.com/Massatriof16/recovery-collections/releases/download/Spd_flash/spreadtrum_flash_V35.zip"><i class="fas fa-download"></i> Windows V35</a><span class="note">.zip</span></li>
+          <li><a class="dl safe-link" href="javascript:void(0)" data-href="https://github.com/Massatriof16/recovery-collections/releases/download/Spd_flash/spreadtrum_flash_linux_V35.zip"><i class="fas fa-download"></i> Linux V35</a><span class="note">.zip</span></li>
+          <li><a class="dl safe-link" href="javascript:void(0)" data-href="https://github.com/Massatriof16/recovery-collections/releases/download/Spd_flash/spreadtrum_flash_V35_Owner.zip"><i class="fas fa-download"></i> Windows V35 Owner</a><span class="note">.zip</span></li>
         </ul>
-        <br>
-        <h4> Fix Error MSCVP140.dll not found WINDOWS 7 - 10 </h4>
-        <ul class="version-list">
-         <li><a id="link" href="https://github.com/Massatriof16/recovery-collections/releases/download/Spd_flash/VC_redist.x86.exe">VC_Redist_X86</a> (Gunakan untuk windows 10 kebawah yg error MSCVP140.dll)</li>
-         <li><a id="link" href="https://github.com/Massatriof16/recovery-collections/releases/download/Spd_flash/VC_redist.x64.exe">VC_Redist_X64</a> (Gunakan untuk windows 10 kebawah yg error MSCVP140.dll)</li>
-         <li><a id="link" href="https://github.com/Massatriof16/recovery-collections/releases/download/Spd_flash/VC_redist.arm64.exe">VC_Redist_arm64</a> (Gunakan untuk windows 10 kebawah yg error MSCVP140.dll)</li>
-         <br>
-        <p><strong>📎 Disclaimer:</strong> Ini hanya menu GUI buatan saya dan AthaxDev untuk memudahkan penggunaan <code>spd_dump</code> yang dibuat oleh @TomKing062 yg ada di githubnya. Terima kasih banyak untuk @TomKing062</p>
-  </div>
-
-
-<div class="alert">
- <h3> Template Perintah sesuai Soc model</h3>
- <p> Untuk mengetahui Soc model device unisoc anda cek menggunakan adb berikut perintahnya <br><br>
- <code>adb shell getprop ro.soc.model</code><br><br>atau<br><br> <code>adb shell getprop ro.board.platform </code><br><br> Pastikan output Sesuai dengan soc model yg ada di bawah ini Ya! <p>
- <p><br>
- <div class="btn-container">
-              <a class="button_d btn-download" href="https://github.com/Massatriof16/recovery-collections/releases/download/Spd_flash/ums9230.txt">UMS9230</a>
-        <a class="button_d btn-download" href="https://github.com/Massatriof16/recovery-collections/releases/download/Spd_flash/sc9863a.txt">SC9863A</a>
-                <a class="button_d btn-download" href="https://github.com/Massatriof16/recovery-collections/releases/download/Spd_flash/ums512.txt">UMS512</a>
       </div>
-</p>
-</div>
 
-<div class="alert">
-  <h3>Support Device List</h3>
+    </div>
 
-  <ul class="version-list">
-
-    <li>
-      <strong>✦ • • • TRANSSION • • • ✦</strong>
-      <ul>
-        <li><strong>ITEL</strong>
-          <ul>
-            <li>S23</li>
-            <li>P40 Plus</li>
-            <li>S23+</li>
-            <li>S25</li>
-            <li>S25 Ultra</li>
-            <li>P55 NFC / P55 4G</li>
-            <li>P65</li>
-            <li>Vision 3 Plus</li>
-            <li>Vision 5 Plus</li>
-            <li>A70</li>
-            <li>A50</li>
-            <li>A80</li>
-            <li>A90</li>
-            <li>Itel City 100</li>
-            <li> Itel A100C (TESTPOINT ! )
-          </ul>
-        </li><br>
-
-        <li><strong>TECNO</strong>
-          <ul>
-            <li>Spark Go 1 KL4</li>
-            <li>Spark 8C</li>
-            <li>Spark Go 2</li>
-            <li>Spark Go 3</li>
-            <li>Spark 10C</li>
-          </ul>
-        </li><br>
-
-        <li><strong>INFINIX</strong>
-          <ul>
-            <li>Hot 30i</li>
-            <li>Smart 10</li>
-            <li>Smart 8 / Smart 8 HD</li>
-            <li>Hot 40i</li>
-            <li>Smart 7</li>
-          </ul>
-        </li>
-      </ul>
-    </li><br>
     
-        <li>
-      <strong>✦ • • • ZTE • • • ✦</strong>
-      <ul>
-        <li>Blade A35  (Owner version)</li>
-        <li>Nubia Neo 2 5G  (Owner version)</li>
-        <li>Nubia Neo 3 GT 5G (Owner version)</li>
-        <li>Nubia Neo 3 5G New Security (Owner version)</li>
-        <li> Nubia V80 Max (Owner version) </li>
-      </ul>
-    </li><br>
+  </section>
 
-    <li>
-      <strong>✦ • • • REALME • • • ✦</strong>
-      <ul>
-        <li>C31</li>
-        <li>C33</li>
-        <li>C35</li>
-        <li>C51</li>
-        <li>Narzo 50i</li>
-        <li>Note 50</li>
-        <li>Note 60 / Note 60x</li>
-        <li>C61</li>
-        <li>C71</li>
-        <li>C21y</li>
-        <li>C25y</li>
-        <li>C53</li>
-        <li>Note 70</li>
-        <li>C63</li>
-      </ul>
-    </li><br>
-    
-    <li>
-      <strong>✦ • • • Advan • • • ✦</strong>
-      <ul>
-        <li>Advan Tab Sketsa 3 </li>
-        <li> advan Tab vx lite 1013</li>
-      </ul>
-    </li><br>
+</main>
 
-    <li>
-      <strong>✦ • • • OTHER BRAND • • • ✦</strong>
-      <ul>
-        <li>Poco C71</li>
-        <li>Redmi A5</li>
-        <li> Oukitel C32 </li>
-        <li> Inoi A35</li>
-        <li> Spc I80 (owner Version) </li>
-        <li> Dooge S_punk & s Cyber (owner version) </li>
-      </ul>
-    </li>
-
-  </ul>
-</div>
-
-
-
-</div>
-</div> 
-
-
-<footer>
-  &copy; 2025/2026 MassatrioF16 & AthaxDev
-</footer>
+<footer>© 2025/2026 MassatrioF16 &amp; AthaxDev — dibuat untuk komunitas riset firmware Unisoc/Spreadtrum</footer>
 
 <script>
-
-
-
-function showTab(e, id){
-  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.tab-link').forEach(b=>b.classList.remove('active'));
-
-  document.getElementById(id).classList.add('active');
-  if(e) e.currentTarget.classList.add('active');
-
-  // UPDATE LINK TANPA REFRESH
-  history.replaceState(null, null, "#" + id);
-}
-
-// buka tab sesuai hash url
-window.addEventListener("DOMContentLoaded", () => {
-  let hash = location.hash.replace("#","");
-
-  if(hash){
-    let btn = document.querySelector(`.tab-link[onclick*="${hash}"]`);
-    if(btn){
-      showTab({currentTarget:btn}, hash);
-      return;
+  // ---------- proteksi link (anti salin/copy link) ----------
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('.safe-link');
+    if (link && link.dataset.href) {
+      e.preventDefault();
+      window.open(link.dataset.href, '_blank', 'noopener');
     }
+  });
+  // blokir klik kanan (mencegah "Copy link address") pada semua link
+  document.addEventListener('contextmenu', (e) => {
+    if (e.target.closest('.safe-link')) e.preventDefault();
+  });
+  // cegah link di-drag (drag lalu drop bisa membocorkan URL)
+  document.addEventListener('dragstart', (e) => {
+    if (e.target.closest('.safe-link')) e.preventDefault();
+  });
+
+  // ---------- sidebar toggle ----------
+  const burger = document.getElementById('burger');
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('overlay');
+
+  function openSidebar(){ sidebar.classList.add('open'); overlay.classList.add('show'); burger.classList.add('active'); }
+  function closeSidebar(){ sidebar.classList.remove('open'); overlay.classList.remove('show'); burger.classList.remove('active'); }
+  burger.addEventListener('click', () => sidebar.classList.contains('open') ? closeSidebar() : openSidebar());
+  overlay.addEventListener('click', closeSidebar);
+
+  // ---------- view switching ----------
+  const navItems = document.querySelectorAll('.nav-item');
+  const views = document.querySelectorAll('.view');
+  function goto(name){
+    views.forEach(v => v.classList.toggle('active', v.id === 'view-' + name));
+    navItems.forEach(n => n.classList.toggle('active', n.dataset.view === name));
+    closeSidebar();
+    window.scrollTo({top:0, behavior:'smooth'});
   }
+  navItems.forEach(item => item.addEventListener('click', () => goto(item.dataset.view)));
 
-  // default tab
-  document.querySelector(".tab-link").click();
-});
+  // ---------- device data (Custom Recovery) ----------
+  const devices = [
+    { name:'Itel S23 S665L', android:'12', tester:'@farispm', date:'6 May 2024',
+      twrp:'https://github.com/Massatriof16/recovery-collections/releases/download/For_s23/TWRP_S665L.img',
+      fox:'https://github.com/Massatriof16/recovery-collections/releases/download/For_s23/OrangeFox_S665L.img' },
+    { name:'Itel P55 NFC A666LN', android:'13', tester:'@akunata3, @kakvandu', date:'13 Sept 2024',
+      twrp:'https://github.com/Massatriof16/recovery-collections/releases/download/for_p55nfc/Twrp_P55_NFC_A666LN.img',
+      fox:'https://github.com/Massatriof16/recovery-collections/releases/download/for_p55nfc/OrangeFox-Unofficial_A666LN.img' },
+    { name:'Itel A70 A665L', android:'13', tester:'@Ayru_0v0', date:'6 Oct 2024',
+      twrp:'https://github.com/Massatriof16/recovery-collections/releases/download/for_a70/TWRP_A665L_vendor_boot.img',
+      fox:'https://github.com/Massatriof16/recovery-collections/releases/download/for_a70/OrangeFox-Unofficial_A665L.img' },
+    { name:'Infinix Hot 30i X669', android:'12', tester:'@toshitzz', date:'28 Jan 2025',
+      twrp:'https://github.com/Massatriof16/recovery-collections/releases/download/for_x669/TWRP_X669_vendor_boot.img',
+      fox:'https://github.com/Massatriof16/recovery-collections/releases/download/for_x669/OrangeFox-Unofficial_X669.img' },
+    { name:'Infinix Hot 40i X6528B', android:'13', tester:'@Onelov1226', date:'25 Jun 2025',
+      twrp:'https://github.com/Massatriof16/recovery-collections/releases/download/for_x6528b/TWRP_X6528_vendor_boot.img',
+      fox:'https://github.com/Massatriof16/recovery-collections/releases/download/for_x6528b/OrangeFox-Unofficial_X6528.img' },
+    { name:'Infinix Smart 8 X6525', android:'13', tester:'@More_than_one1', date:'27 Jun 2025',
+      twrp:'https://github.com/Massatriof16/recovery-collections/releases/download/for_x6525/TWRP_X6525_vendor_boot.img',
+      fox:'https://github.com/Massatriof16/recovery-collections/releases/download/for_x6525/OrangeFox-Unofficial_X6525.img' },
+    { name:'Itel S23+ S681LN', android:'13', tester:'@r4dbz', date:'27 Jun 2025',
+      twrp:'https://github.com/Massatriof16/recovery-collections/releases/download/for_s681ln/TWRP_S681LN_vendor_boot.img',
+      fox:'https://github.com/Massatriof16/recovery-collections/releases/download/for_s681ln/OrangeFox-Unofficial_S681LN.img' },
+    { name:'Realme C33 RMX3624', android:'13', tester:'@yvil_re', date:'24 Sept 2025',
+      twrp:'https://github.com/Massatriof16/recovery-collections/releases/download/for_rmx3624/TWRP_RMX3624_vendor_boot.img',
+      fox:'https://github.com/Massatriof16/recovery-collections/releases/download/for_rmx3624/OrangeFox-Unofficial_RMX3624.img' },
+    { name:'Itel P65 P671L / LN', android:'14', tester:'@KurumiDev, @npcvbn', date:'16 Nov 2025',
+      twrp:'https://github.com/Massatriof16/recovery-collections/releases/download/for_p671l/TWRP_P671L_vendor_boot.img',
+      fox:'https://github.com/Massatriof16/recovery-collections/releases/download/for_p671l/OrangeFox-Unofficial_P671L.img' },
+    { name:'Tecno Spark Go 1 KL4', android:'14', tester:'@shinmorik, @NethWs3Dev', date:'27 Des 2025',
+      twrp:null,
+      fox:'https://github.com/Massatriof16/recovery-collections/releases/download/for_kl4/OrangeFox-Unofficial_KL4.img' },
+    { name:'Realme C63 / Note 60 RMX3939', android:'14', tester:'@KazeTheLight', date:'21 Mar 2026',
+      twrp:null, fox:null },
+    { name:'Itel City 100 C671L', android:'14', tester:null, date:'14 Mei 2026',
+      twrp:'https://github.com/Massatriof16/recovery-collections/releases/download/for_c671l/TWRP_C671L_vendor_boot.img',
+      fox:'https://github.com/Massatriof16/recovery-collections/releases/download/for_c671l/OrangeFox-Unofficial_C671L.img' },
+    { name:'Advan Tab VX Lite 1013', android:'13', tester:null, date:'9 Aug 2026',
+      twrp:'https://github.com/Massatriof16/recovery-collections/releases/download/for_1h10/TWRP_1h10_vendor_boot.img.xz',
+      fox:null },
+  ];
 
-window.addEventListener("hashchange", ()=>{
-  let hash = location.hash.replace("#","");
-  let btn = document.querySelector(`.tab-link[onclick*="${hash}"]`);
-  if(btn) showTab({currentTarget:btn}, hash);
-});
-
+  const deviceGrid = document.getElementById('deviceGrid');
+  deviceGrid.innerHTML = devices.map(d => `
+    <div class="device-card">
+      <h3>${d.name}</h3>
+      <div>
+        <span class="tag">Touch</span>
+        <span class="tag">Decrypt</span>
+      </div>
+      <div class="device-meta">
+        Android ${d.android}${d.tester ? ` • Tester: ${d.tester}` : ''}<br>
+        Build Date: ${d.date}
+      </div>
+      <div class="bug">BUG: Decrypt Lockscreen</div>
+      <div class="btn-row">
+        ${d.twrp ? `<a class="btn btn-twrp safe-link" href="javascript:void(0)" data-href="${d.twrp}"><i class="fas fa-download"></i> TWRP</a>` : `<span class="btn disabled">TWRP</span>`}
+        ${d.fox ? `<a class="btn btn-orange safe-link" href="javascript:void(0)" data-href="${d.fox}"><i class="fas fa-download"></i> OrangeFox</a>` : `<span class="btn disabled">OrangeFox</span>`}
+      </div>
+    </div>
+  `).join('');
 </script>
-
 </body>
 </html>
