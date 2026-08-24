@@ -95,6 +95,7 @@
   .card{
     background:var(--surface); border:1px solid var(--line); border-radius:18px;
     padding:24px;
+    margin-top: 20px;
   }
 
   /* ---------- HOME ---------- */
