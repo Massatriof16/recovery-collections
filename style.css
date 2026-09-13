@@ -243,3 +243,5 @@
   object-position: center; /* titik fokus crop-nya di tengah gambar */
   display: block;         /* hilangin celah kecil di bawah gambar (bug bawaan <img>) */
 }
+
+.listdev{ font-size:13px; color:var(--text-1); margin-bottom:14px; }
